@@ -1,5 +1,5 @@
 # Build stage for Java compilation
-FROM eclipse-temurin:17.0.11_9-jdk AS builder
+FROM --platform=linux/amd64 eclipse-temurin:17-jdk-focal AS builder
 WORKDIR /build
 COPY <<EOF /build/VulnerableApp.java
 public class VulnerableApp {
@@ -24,7 +24,7 @@ EOF
 RUN javac VulnerableApp.java
 
 # Final stage
-FROM ubuntu:20.04
+FROM --platform=linux/amd64 ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
