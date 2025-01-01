@@ -1,5 +1,5 @@
 # Build stage for Java compilation
-FROM eclipse-temurin:17.0.11_9-jdk-alpine AS builder
+FROM eclipse-temurin:17.0.11_9-jdk AS builder
 WORKDIR /build
 COPY <<EOF /build/VulnerableApp.java
 public class VulnerableApp {
